@@ -2,8 +2,30 @@
 
 <h1>Compose</h1>
 <form action="/compose" method="post">
-  <input type="text" name="newPost" autocomplete="off" />
-  <button type="submit" name="button" value="">Publish</button>
+  <div class="form-group">
+    <label for="title"><span>Title</span></label>
+    <input
+      type="text"
+      name="postTitle"
+      autocomplete="off"
+      class="form-control"
+      id="email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="userText">Post:</label>
+    <textarea
+      type="text"
+      class="form-control"
+      placeholder="Paste your text here"
+      value=""
+      name="postText"
+      id="pwd"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-default" name="button" value="">
+    Publish
+  </button>
 </form>
 
 <%- include("./parcials/footer") -%>

@@ -23,9 +23,17 @@ app.use(express.static("public"));
 app.set("views", path.join(__dirname, "views")); //to find all our views
 app.set("view engine", "ejs");
 
+//Fake DB
+const posts = [];
+
 // Routes
 app.get("/", function (req, res) {
-  res.render("home", { homeStartingContent: homeStartingContent });
+  // console.log('----->', posts);
+  
+  res.render("home", {
+    homeStartingContent: homeStartingContent,
+    posts: posts,
+  });
 });
 
 app.get("/about", function (req, res) {
@@ -41,9 +49,12 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-  let userEntry = req.body.newPost;
-  console.log('userEntry', userEntry);
-  
+  const post = {
+    postTitle: req.body.postTitle,
+    postText: req.body.postText,
+  };
+  posts.push(post);
+  res.redirect("/");
 });
 
 app.listen(3000, function () {
