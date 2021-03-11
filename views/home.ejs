@@ -10,9 +10,7 @@
   <% posts.forEach(element => { %>
   <h2><%= element.postTitle %></h2>
   <p><%= element.postText.substring(0, 100) + " ..." %> <a href="/posts/<%= element.postTitle %>"> Read more </a> </p>
-  <!-- <button onclick="toggleText()" id="textButton"> 
-    Read more 
-</button>  -->
+
   <% }) %>
 </div>
 
